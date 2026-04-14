@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { FiPhoneCall } from "react-icons/fi";
 import { LuVideo } from "react-icons/lu";
@@ -6,10 +6,18 @@ import { MdOutlineTextsms } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiArchive } from "react-icons/fi";
 import { RiNotificationSnoozeLine } from "react-icons/ri";
+import { toast } from "react-toastify";
+import FriendContext, { FriendsContext } from "../../context/FriendContext";
+
 
 const FriendDetails = () => {
   const friends = useLoaderData();
   const { id } = useParams();
+  const { callStatus, setCallStatus } = useContext(FriendsContext);
+  const handleCall = () => {
+    setCallStatus([...callStatus, expectedFriend]);
+    toast.success("Call is Successfully!");
+  };
   const expectedFriend = friends.find((fnd) => fnd.id == id);
   return (
     <div className="grid grid-cols-10 gap-4 grid-rows-3 mt-10 w-11/12 mx-auto">
@@ -95,7 +103,10 @@ const FriendDetails = () => {
       <div className="col-span-6 px-5 bg-base-100 rounded-md shadow-sm">
         <h2 className="mb-3 text-xl font-bold mt-3">Quick Check-In</h2>
         <div className="grid grid-cols-3 gap-4">
-          <button className="btn flex flex-col w-full h-24 text-xl">
+          <button
+            onClick={() => handleCall()}
+            className="btn flex flex-col w-full h-24 text-xl"
+          >
             <div className="text-2xl">
               <FiPhoneCall />
             </div>
@@ -111,7 +122,7 @@ const FriendDetails = () => {
             <div className="text-2xl">
               <LuVideo />
             </div>
-            Call
+            Video
           </button>
         </div>
       </div>
