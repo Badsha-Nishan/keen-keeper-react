@@ -2,8 +2,12 @@ import React from "react";
 
 const FriendsCards = ({ friend }) => {
   return (
-    <div className="bg-base-100 p-4 rounded-md ">
-      <div className="space-y-4 cursor-pointer">
+    <div
+      className="bg-base-100 p-4 rounded-md bg-base-100 rounded-2xl p-5 shadow-md 
+    transition-all duration-300 ease-in-out
+    hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]"
+    >
+      <div className="space-y-4 cursor-pointer ">
         <div className="flex justify-center items-center ">
           <img
             className="rounded-full"
