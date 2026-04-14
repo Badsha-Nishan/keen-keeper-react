@@ -3,6 +3,7 @@ import Logo from "../../assets/logo.png";
 import { GoHome } from "react-icons/go";
 import { RiTimeLine } from "react-icons/ri";
 import { ImStatsDots } from "react-icons/im";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -31,18 +32,18 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <a className="btn">
+              <NavLink to={"/"} className="btn">
                 {" "}
                 <GoHome /> Home
-              </a>
-              <a className="btn">
+              </NavLink>
+              <NavLink to="/timeline" className="btn">
                 {" "}
                 <RiTimeLine /> Timeline
-              </a>
-              <a className="btn">
+              </NavLink>
+              <NavLink to="/stats" className="btn">
                 {" "}
                 <ImStatsDots /> Stats
-              </a>
+              </NavLink>
             </ul>
           </div>
           <a className="text-xl">
@@ -50,18 +51,33 @@ const Navbar = () => {
           </a>
         </div>
         <div className="hidden sm:flex navbar-end gap-3">
-          <a className="btn">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `btn ${isActive ? "bg-[#244D3F] text-white" : ""}`
+            }
+          >
             {" "}
             <GoHome /> Home
-          </a>
-          <a className="btn">
+          </NavLink>
+          <NavLink
+            to="/timeline"
+            className={({ isActive }) =>
+              `btn ${isActive ? "bg-[#244D3F] text-white" : ""}`
+            }
+          >
             {" "}
             <RiTimeLine /> Timeline
-          </a>
-          <a className="btn">
+          </NavLink>
+          <NavLink
+            to="/stats"
+            className={({ isActive }) =>
+              `btn ${isActive ? "bg-[#244D3F] text-white" : ""}`
+            }
+          >
             {" "}
             <ImStatsDots /> Stats
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>
