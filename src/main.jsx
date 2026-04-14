@@ -16,6 +16,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Homepage,
+        loader: ()=> fetch("/data.json")
       },
       {
         path: "/timeline",
