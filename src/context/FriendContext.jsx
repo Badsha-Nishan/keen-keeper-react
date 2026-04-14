@@ -1,13 +1,17 @@
 import React, { createContext, useState } from "react";
 import callLogo from "../assets/call.png"
+import textLogo from "../assets/text.png"
+import videoLogo from "../assets/video.png"
 
 export const FriendsContext = createContext();
 const FriendContext = ({ children }) => {
-    const [callStatus, setCallStatus] = useState([]);
+    const [timeline, setTimeline] = useState([]);
   const data = {
-    callStatus,
-    setCallStatus,
-    callLogo
+    timeline,
+    setTimeline,
+    callLogo,
+    textLogo,
+    videoLogo,
   };
   return (
     <FriendsContext.Provider value={data}>{children}</FriendsContext.Provider>

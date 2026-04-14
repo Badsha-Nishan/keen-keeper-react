@@ -7,16 +7,54 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FiArchive } from "react-icons/fi";
 import { RiNotificationSnoozeLine } from "react-icons/ri";
 import { toast } from "react-toastify";
-import FriendContext, { FriendsContext } from "../../context/FriendContext";
-
+import { FriendsContext } from "../../context/FriendContext";
 
 const FriendDetails = () => {
   const friends = useLoaderData();
   const { id } = useParams();
-  const { callStatus, setCallStatus } = useContext(FriendsContext);
+  const { timeline, setTimeline, callLogo, textLogo, videoLogo } =
+    useContext(FriendsContext);
   const handleCall = () => {
-    setCallStatus([...callStatus, expectedFriend]);
+    const newItem = {
+      ...expectedFriend,
+      type: "call",
+      time: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      logo: callLogo,
+    };
+    setTimeline([...timeline, newItem]);
     toast.success("Call is Successfully!");
+  };
+  const handleText = () => {
+    const newItem = {
+      ...expectedFriend,
+      type: "text",
+      time: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      logo: textLogo,
+    };
+    setTimeline([...timeline, newItem]);
+    toast.success("Text is Success!");
+  };
+  const handleVideo = () => {
+    const newItem = {
+      ...expectedFriend,
+      type: "video",
+      time: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      logo: videoLogo,
+    };
+    setTimeline([...timeline, newItem]);
+    toast.success("Video is Success!");
   };
   const expectedFriend = friends.find((fnd) => fnd.id == id);
   return (
@@ -112,13 +150,19 @@ const FriendDetails = () => {
             </div>
             Call
           </button>
-          <button className="btn flex flex-col w-full h-24 text-xl">
+          <button
+            onClick={() => handleText()}
+            className="btn flex flex-col w-full h-24 text-xl"
+          >
             <div className="text-2xl">
               <MdOutlineTextsms />
             </div>
             Text
           </button>
-          <button className="btn flex flex-col w-full h-24 text-xl">
+          <button
+            onClick={() => handleVideo()}
+            className="btn flex flex-col w-full h-24 text-xl"
+          >
             <div className="text-2xl">
               <LuVideo />
             </div>
