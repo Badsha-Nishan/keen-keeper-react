@@ -1,4 +1,3 @@
-import React, { use } from "react";
 import { useLoaderData } from "react-router";
 import FriendsCards from "./FriendsCards";
 
