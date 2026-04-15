@@ -26,7 +26,7 @@ const FriendDetails = () => {
       logo: callLogo,
     };
     setTimeline([...timeline, newItem]);
-    toast.success("Call is Successfully!");
+    toast.success(`Call with ${expectedFriend.name}!`);
   };
   const handleText = () => {
     const newItem = {
@@ -40,7 +40,7 @@ const FriendDetails = () => {
       logo: textLogo,
     };
     setTimeline([...timeline, newItem]);
-    toast.success("Text is Success!");
+    toast.success(`Text with ${expectedFriend.name}!`);
   };
   const handleVideo = () => {
     const newItem = {
@@ -54,7 +54,7 @@ const FriendDetails = () => {
       logo: videoLogo,
     };
     setTimeline([...timeline, newItem]);
-    toast.success("Video is Success!");
+    toast.success(`Video with ${expectedFriend.name}!`);
   };
   const expectedFriend = friends.find((fnd) => fnd.id == id);
   return (
