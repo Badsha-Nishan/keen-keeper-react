@@ -59,7 +59,7 @@ const FriendDetails = () => {
   const expectedFriend = friends.find((fnd) => fnd.id == id);
   return (
     <div className="grid grid-cols-10 gap-4 grid-rows-3 mt-10 w-11/12 mx-auto">
-      <div className="row-span-2 col-span-4 bg-base-100 p-4 rounded-md shadow-md">
+      <div className="col-span-10 sm:row-span-2 sm:col-span-4 bg-base-100 p-4 rounded-md shadow-md">
         <div className="space-y-4 cursor-pointer text-center">
           <div className="flex justify-center items-center ">
             <img
@@ -95,21 +95,21 @@ const FriendDetails = () => {
           </p>
         </div>
       </div>
-      <div className="col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
+      <div className="col-span-5 sm:col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
         <h2 className="text-2xl font-bold">
           {expectedFriend.days_since_contact}
         </h2>
         <p className="text-gray-600">Days Since Contact</p>
       </div>
-      <div className="col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
+      <div className="col-span-5 sm:col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
         <h2 className="text-2xl font-bold">{expectedFriend.goal}</h2>
         <p className="text-gray-600">Goal (Days)</p>
       </div>
-      <div className="col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
+      <div className="col-span-10 sm:col-span-2 text-center bg-base-100 content-center rounded-md shadow-sm">
         <h2 className="text-2xl font-bold">{expectedFriend.next_due_date}</h2>
         <p className="text-gray-600">Next Due</p>
       </div>
-      <div className="col-span-6 px-5 bg-base-100 rounded-md shadow-sm flex justify-between items-center">
+      <div className="col-span-10 sm:col-span-6 px-5 bg-base-100 rounded-md shadow-sm flex justify-between items-center">
         <div>
           <h2 className="text-xl font-bold mb-4">Relationship Goal</h2>
           <p className="text-gray-600">
@@ -121,7 +121,7 @@ const FriendDetails = () => {
         </div>
       </div>
 
-      <div className="row-span-1 col-span-4 space-y-4">
+      <div className="row-span-1 col-span-10 sm:col-span-4 space-y-4">
         <button className="btn w-full">
           {" "}
           <RiNotificationSnoozeLine />
@@ -138,7 +138,7 @@ const FriendDetails = () => {
           Delete
         </button>
       </div>
-      <div className="col-span-6 px-5 bg-base-100 rounded-md shadow-sm">
+      <div className="col-span-10 sm:col-span-6 px-5 bg-base-100 rounded-md shadow-sm">
         <h2 className="mb-3 text-xl font-bold mt-3">Quick Check-In</h2>
         <div className="grid grid-cols-3 gap-4">
           <button

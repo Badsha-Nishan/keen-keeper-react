@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 
-const Stats = () => {
+const DashboardStats = () => {
   const friends = useLoaderData();
   return (
     <div className="mt-10 w-11/12 mx-auto grid grid-cols-12 gap-4 pb-8 border-b-1 border-gray-300">
@@ -25,4 +25,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export default DashboardStats;
