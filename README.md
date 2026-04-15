@@ -29,6 +29,6 @@ Friendship Tracker is a simple and interactive web application that helps users 
 ---
 
 ## 🔗 Live Link
-👉 [\[Add your deployed link here\]](https://keen-keeper-react.vercel.app/)
+👉 [(https://keen-keeper-react.vercel.app/)]
 
 ---
