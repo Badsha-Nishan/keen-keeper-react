@@ -24,13 +24,22 @@ const TimeLinePage = () => {
         <option value="text">Text</option>
         <option value="video">Video</option>
       </select>
-      {filteredTimeline.map((item, index) =>
-        item.type === "call" ? (
-          <TimeLineCard key={index} item={item}></TimeLineCard>
-        ) : item.type === "text" ? (
-          <TextCard key={index} item={item}></TextCard>
-        ) : (
-          <VideoCard key={index} item={item}></VideoCard>
+      {filteredTimeline.length === 0 ? (
+        <div className="text-center py-20">
+          <h3 className="text-2xl font-semibold">No Activities Found</h3>
+          <p className="text-gray-500 mt-2">
+            No {filter !== "all" ? filter : ""} interactions yet.
+          </p>
+        </div>
+      ) : (
+        filteredTimeline.map((item, index) =>
+          item.type === "call" ? (
+            <TimeLineCard key={index} item={item}></TimeLineCard>
+          ) : item.type === "text" ? (
+            <TextCard key={index} item={item}></TextCard>
+          ) : (
+            <VideoCard key={index} item={item}></VideoCard>
+          )
         )
       )}
     </div>
